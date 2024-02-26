@@ -25,7 +25,7 @@
         </a>    
     </li>
     <li class="sidebar-item ">
-        <a href="index.html" class='sidebar-link'>
+        <a href="{{ url('articles') }}" class='sidebar-link'>
             <i data-feather="file-text" width="20"></i> 
             <span>Articles</span>
         </a>    
