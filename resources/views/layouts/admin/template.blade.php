@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
-    
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="stylesheet" href="{{ asset('admin/css/bootstrap.css') }}">
     
     <link rel="stylesheet" href="{{ asset('admin/vendors/chartjs/Chart.min.css') }}">
-
+    
     <link rel="stylesheet" href="{{ asset('admin/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="stylesheet" href="{{ asset('admin/css/app.css') }}">
     <link rel="shortcut icon" href="{{ asset('admin/images/favicon.svg') }}" type="image/x-icon">
+
+    @stack('css')
 </head>
 <body>
     <div id="app">
@@ -81,5 +83,6 @@
     <script src="{{ asset('admin/js/pages/dashboard.js') }}"></script>
 
     <script src="{{ asset('admin/js/main.js') }}"></script>
+    @stack('js')
 </body>
 </html>

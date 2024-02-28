@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RequestArticle extends FormRequest
+class RequestUpdateArticle extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,10 +26,9 @@ class RequestArticle extends FormRequest
             'category_id'    => 'required',
             'title'          => 'required',
             'desc'           => 'required',
-            'img'            => 'required|image|file|mimes:png,jpg,jpeg,webp|max:2024',
+            'img'            => 'nullable|image|file|mimes:png,jpg,jpeg,webp|max:2024',
             'status'         => 'required',
             'publish_date'   => 'required'
-
         ];
     }
 }

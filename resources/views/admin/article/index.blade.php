@@ -1,6 +1,9 @@
 @extends('layouts.admin.template')
 
 @section('title', 'Berita Purworejo | list article')
+@push('css')
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.bootstrap4.css">
+@endpush
 @section('content')
     <div class="main-content container-fluid">
         <section class="section">
@@ -46,7 +49,7 @@
                             @endif
                         </div>
                         <div class="card-body">
-                            <table class='table table-striped' id="table1">
+                            <table class='table table-striped table-bordered' id="table1">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -59,26 +62,7 @@
                                 </thead>
                                 <tbody>
 
-                                    @foreach ($articles as $row)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $row->category->name }}</td>
-                                            <td>{{ $row->title }}</td>
-                                            <td>{{ $row->status }}</td>
-                                            <td>{{ $row->publish_date }}</td>
-                                            <td>
-                                                <a data-bs-toggle="modal" data-bs-target="#inlineFormUpdate{{ $row->id }}">
-                                                    <i class="badge-circle badge-circle-white text-secondary font-medium-1"
-                                                        data-feather="edit"></i>
-                                                </a>
-                                                <button data-bs-toggle="modal" data-bs-target="#inlineFormDelete{{ $row->id }}">
-                                                    <i class="badge-circle badge-circle-white text-secondary font-medium-1"
-                                                        data-feather="trash-2"></i>
-                                                </button>
-                                            </td>
-
-                                        </tr>
-                                    @endforeach
+                                  
                                 </tbody>
                             </table>
                         </div>
@@ -88,3 +72,108 @@
     </div>
 
 @endsection
+
+@push('js')
+
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdn.datatables.net/2.0.1/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/2.0.1/js/dataTables.bootstrap4.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+{{-- <script>
+    $(document).ready(function(){
+        $('#table1').DataTable();
+    });
+</script> --}}
+{{-- sweet alert --}}
+ <script>
+   const swal = $('.swal').data('swal');
+   if (swal) {
+     Swal.fire({
+       'title': 'Success',
+       'text' : swal,
+       'icon' : 'success',
+       'showConfirmButton' :false,
+       'timer' : 2500
+     })
+   }
+
+   function deleteArticle(e) {
+     let id = e.getAttribute('data-id');
+
+     Swal.fire({
+       title: 'Delete',
+       text: 'Are you sure?',
+       icon: 'question',
+       showCancelButton: true,
+       ConfirmButtonColor: '#d33',
+       cancelButtonColor:  '#3885d6',
+       confirmButtonText: 'Delete!',
+       cancelButtonText: 'Cancel'
+     }).then((result) => {
+       if (result.value) {
+         $.ajax({
+           headers: {
+             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+           },
+           type: 'DELETE',
+           url: '/articles/' + id,
+           dataType: "json",
+           success: function(response) {
+             Swal.fire({
+               title: 'Success',
+               text: response.message,
+               icon: 'success',
+             }).then((result) => {
+               window.location.href = '/articles';
+             })
+           },
+           error: function(xhr, ajaxOptions, thrownError) {
+             alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+           }
+         });
+       }
+     })
+   }
+ </script>
+<script>
+    $(document).ready(function() {
+        $('#table1').DataTable({
+            processing:true,
+            serverside:true,
+            ajax:'{{ url()->current() }}',
+             columns: [
+                {
+              data:'DT_RowIndex',
+              name:'DT_RowIndex'
+            },
+                {
+              data:'category_id',
+              name:'category_id'
+            },
+            {
+              data:'title',
+              name:'title'
+            },
+          
+            {
+              data:'status',
+              name:'status'
+            },
+            {
+              data:'publish_date',
+              name:'publish_date'
+            },
+            {
+              data:'button',
+              name:'button'
+            },
+            
+
+             ]
+        });
+    });
+</script>
+@endpush
+
