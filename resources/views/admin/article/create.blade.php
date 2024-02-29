@@ -72,9 +72,12 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>File upload (Max 2Mb)</label>
+                                    <div class="mt-1">
+                                        <img src="" alt="" class="img-thumbnail img-preview" width="100px">
+                                      </div>
                                     <div class="form-file">
                                         <input type="file" name="img" class="form-control form-file-input"
-                                            id="customFile" value="{{ old('img')  }}">
+                                            id="customFile">
                                     </div>
                                 </div>
                             </div>
@@ -92,13 +95,13 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="basicInput">Description</label>
-                                    <textarea class="form-control" name="desc" rows="10" value="{{ old('desc')  }}"></textarea>
+                                    <textarea id="ckeditor" name="desc" rows="10" value="{{ old('desc')  }}"></textarea>
                                 </div>
                             </div>
                         </div>
 
                     <button type="submit" class="btn btn-primary me-2">Submit</button>
-                    <button class="btn btn-light">Cancel</button>
+                    <button type="submit" class="btn btn-light">Cancel</button>
                     </form>
                 </div>
             </div>
@@ -111,3 +114,34 @@
 
     </div>
 @endsection
+
+@push('js')
+<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<script>
+    var options = {
+      filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+      filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+      filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+      filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
+      clipboard_handleImages:false
+    };
+  </script>
+<script>
+    CKEDITOR.replace('ckeditor', options);
+
+    $("#customFile").change(function() {
+      previewImage(this);
+    });
+
+    function previewImage(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          $('.img-preview').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+</script>
+@endpush

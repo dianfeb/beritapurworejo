@@ -5,13 +5,13 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Create Article</h3>
+                    <h3>Update Article</h3>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class='breadcrumb-header'>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Create Article</li>
+                            <li class="breadcrumb-item active" aria-current="page">Update Article</li>
                         </ol>
                     </nav>
                 </div>
@@ -20,22 +20,11 @@
         </div>
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
-                    <a href="{{ url('articles/create') }}" class="btn btn-outline-primary mb-3">Add Data</a>
-                        @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                </div>
                 <div class="card-body">
                     <form class="forms-sample" action="{{ url('articles/'.$article->id) }}" method="post" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
+                        <input type="hidden" name="oldImg" value="{{$article->img}}">
                         <div class="row">
 
 
@@ -78,7 +67,7 @@
                                 <div class="form-group">
                                     <label>File upload (Max 2Mb)</label>
                                     <div class="form-file">
-                                        <img src="{{asset('storage/app/public/admin/article/'.$article->img)}}" alt="" width="100px"><br>
+                                        <img src="{{asset('storage/admin/article/'.$article->img)}}" alt="" width="100px"><br>
                                             <small>Gambar Lama </small><br>
                                         <input type="file" name="img" class="form-control form-file-input"
                                             id="customFile" >

@@ -26,3 +26,8 @@ Route::resource('/categories', CategoryController::class)->only([
     ]);
 
 Route::resource('/articles', ArticleController::class);
+
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'guest']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});

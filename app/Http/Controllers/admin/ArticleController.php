@@ -92,6 +92,9 @@ class ArticleController extends Controller
     public function show(string $id)
     {
         //
+        return view('admin.article.show', [
+            'article' => Article::find($id)
+        ]);
     }
 
     /**
