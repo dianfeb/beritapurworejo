@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Models\Article;
-use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class DashboardController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,15 +14,9 @@ class DashboardController extends Controller
     public function index()
     {
         //
-         
-    return view('admin.dashboard', [
-        'total_article' => Article::count(),
-        'total_category' => Category::count(),
-        // 'latest_article' => Article::with('Category')->whereStatus(1)->take(10)->get(),
-        'popular_article' => Article::with('Category')->whereStatus(1)->orderBy('views', 'desc')->take(10)->get()
-
-    ]);
-
+        return view('admin.user',[
+            'users' => User::get()
+        ]);
     }
 
     /**

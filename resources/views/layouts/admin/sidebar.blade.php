@@ -36,32 +36,12 @@
                 
             
                 
-    <li class="sidebar-item  has-sub">
-
-        <a href="#" class='sidebar-link'>
+    <li class="sidebar-item ">
+        <a href="{{ url('users') }}" class='sidebar-link'>
             <i data-feather="user" width="20"></i> 
-            <span>Authentication</span>
-        </a>
-
-        
-        <ul class="submenu ">
-            
-            <li>
-                <a href="auth-login.html">Login</a>
-            </li>
-            
-            <li>
-                <a href="auth-register.html">Register</a>
-            </li>
-            
-            <li>
-                <a href="auth-forgot-password.html">Forgot Password</a>
-            </li>
-            
-        </ul>
-        
+            <span>User</span>
+        </a>    
     </li>
-    
     
 </ul>
  
