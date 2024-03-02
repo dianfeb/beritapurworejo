@@ -4,7 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\RequestUser;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RequestUpdateUser;
 
 class UserController extends Controller
 {
@@ -14,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         //
-        return view('admin.user',[
+        return view('admin.user.index',[
             'users' => User::get()
         ]);
     }
@@ -25,14 +27,21 @@ class UserController extends Controller
     public function create()
     {
         //
+        return view('admin.user.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(RequestUser $request)
     {
         //
+        $data = $request->validated();
+        $data['password'] = bcrypt($data['password']);
+        User::create($data);
+        
+
+        return redirect(url('users'))->with('success', 'Data User Has Been Created');
     }
 
     /**
@@ -49,14 +58,32 @@ class UserController extends Controller
     public function edit(string $id)
     {
         //
+        return view('admin.user.edit', [
+            'users' => User::find($id)
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(RequestUpdateUser $request, string $id)
     {
         //
+        $data = $request->validated();
+       
+
+        if ($data['password'] != '') {
+            $data['password'] = bcrypt($data['password']);
+            User::find($id)->update($data);
+        } else {
+            User::find($id)->update([
+                'name' => $request->name,
+                'email' => $request->email
+            ]);
+        }
+        
+        
+        return redirect(url('users'))->with('success', 'Data User Has Been Update');
     }
 
     /**
@@ -65,5 +92,11 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         //
+        $data = User::find($id);
+        // Storage::delete('public/admin/article/'.$data->img);
+        $data->delete();
+        return response()->json([
+            'message' => 'Data user has been deleted'
+        ]);
     }
 }

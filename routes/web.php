@@ -24,18 +24,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::resource('/categories', CategoryController::class)->only([
-    'index', 'store', 'update', 'show','destroy'
-    ]);
 
-Route::resource('/users', UserController::class);
-Route::resource('/articles', ArticleController::class);
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::middleware('auth')->group(function(){
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 
-Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'guest']], function () {
-    \UniSharp\LaravelFilemanager\Lfm::routes();
+    Route::resource('/categories', CategoryController::class)->only([
+        'index', 'store', 'update', 'show','destroy'
+        ]);
+    
+    Route::resource('/users', UserController::class);
+
+    Route::resource('/articles', ArticleController::class);
+    
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    
+    Route::group(['prefix' => 'laravel-filemanager'], function () {
+        \UniSharp\LaravelFilemanager\Lfm::routes();
+    });
 });
+
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

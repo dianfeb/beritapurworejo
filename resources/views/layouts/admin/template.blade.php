@@ -50,13 +50,18 @@
                                 <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
                     
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i data-feather="log-out"></i> Logout</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();"><i data-feather="log-out"></i> Logout</a>
                             </div>
                         </li>
                     </ul>
                 </div>
             </nav>
 
+          
 
             {{-- panggil section --}}
             @yield('content')

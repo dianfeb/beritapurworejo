@@ -20,18 +20,6 @@
         </div>
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
-                    <a href="{{ url('articles/create') }}" class="btn btn-outline-primary mb-3">Add Data</a>
-                        @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                </div>
                 <div class="card-body">
                     <form class="forms-sample" action="{{ url('articles') }}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -116,6 +104,7 @@
 @endsection
 
 @push('js')
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <script>
     var options = {

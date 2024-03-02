@@ -44,7 +44,7 @@ class ArticleController extends Controller
                 return '
                 
                 <a class="btn btn-outline-info" href="articles/'.$article->id.'"style="padding: 0.3rem 0.5rem;">View</a>
-                <a class="btn btn-outline-warning" href="articles/'.$article->id.'/edit" style="padding:  0.3rem 0.5rem;">Edit   </a>
+                <a class="btn btn-outline-warning" href="articles/'.$article->id.'/edit" style="padding:  0.3rem 0.5rem;">Edit</a>
                 <a class="btn btn-outline-danger" href="#" onclick="deleteArticle(this)" data-id="'.$article->id.'" style="padding:  0.3rem 0.5rem;">Delete</a>
     ';
             
