@@ -64,8 +64,12 @@
                                             <td>{{ $row->email }}</td>
                                             <td>{{ $row->created_at }}</td>
                                             <td>
-                                                <a class="btn btn-outline-warning" href="users/'.$user->id.'/edit" style="padding:  0.3rem 0.5rem;">Edit</a>
-                                                <a class="btn btn-outline-danger" href="#" onclick="deleteUser(this)" data-id="<?= $row->id ?>" style="padding: 0.3rem 0.5rem;">Delete</a>
+                                                <a class="btn btn-outline-warning" href="{{ url('users/'.$row->id.'/edit') }}"> <i class="badge-circle badge-circle-white text-secondary font-medium-1"
+                                                    data-feather="edit"></i></a>
+                                                <button data-bs-toggle="modal" class="btn btn-outline-danger" data-bs-target="#inlineFormDelete{{ $row->id }}">
+                                                    <i class="badge-circle badge-circle-white text-secondary font-medium-1"
+                                                        data-feather="trash-2"></i>
+                                                </button>
 
                                             </td>
 
@@ -79,59 +83,5 @@
     </div>
     </div>
 
+    @include('admin.user.modaldelete')
 @endsection
-
-@push('js')
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-      const swal = $('.swal').data('swal');
-   if (swal) {
-     Swal.fire({
-       'title': 'Success',
-       'text' : swal,
-       'icon' : 'success',
-       'showConfirmButton' :false,
-       'timer' : 2500
-     })
-   }
-
-   function deleteUser(e) {
-     let id = e.getAttribute('data-id');
-
-     Swal.fire({
-       title: 'Delete',
-       text: 'Are you sure?',
-       icon: 'question',
-       showCancelButton: true,
-       ConfirmButtonColor: '#d33',
-       cancelButtonColor:  '#3885d6',
-       confirmButtonText: 'Delete!',
-       cancelButtonText: 'Cancel'
-     }).then((result) => {
-       if (result.value) {
-         $.ajax({
-           headers: {
-             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-           },
-           type: 'DELETE',
-           url: '/users/' + id,
-           dataType: "json",
-           success: function(response) {
-             Swal.fire({
-               title: 'Success',
-               text: response.message,
-               icon: 'success',
-             }).then((result) => {
-               window.location.href = '/users';
-             })
-           },
-           error: function(xhr, ajaxOptions, thrownError) {
-             alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
-           }
-         });
-       }
-     })
-   }
-</script>
-    
-@endpush

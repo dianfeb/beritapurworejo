@@ -43,9 +43,9 @@ class ArticleController extends Controller
             ->addColumn('button', function($article) {
                 return '
                 
-                <a class="btn btn-outline-info" href="articles/'.$article->id.'"style="padding: 0.3rem 0.5rem;">View</a>
-                <a class="btn btn-outline-warning" href="articles/'.$article->id.'/edit" style="padding:  0.3rem 0.5rem;">Edit</a>
-                <a class="btn btn-outline-danger" href="#" onclick="deleteArticle(this)" data-id="'.$article->id.'" style="padding:  0.3rem 0.5rem;">Delete</a>
+                <a class="btn btn-outline-info" href="articles/'.$article->id.'">View</a>
+                <a class="btn btn-outline-warning" href="articles/'.$article->id.'/edit">Edit</a>
+                <a class="btn btn-outline-danger" href="#" onclick="deleteArticle(this)" data-id="'.$article->id.'">Delete</a>
     ';
             
             })
@@ -146,11 +146,7 @@ class ArticleController extends Controller
     public function destroy(string $id)
     {
         //
-        $data = Article::find($id);
-        // Storage::delete('public/admin/article/'.$data->img);
-        $data->delete();
-        return response()->json([
-            'message' => 'Data article has been deleted'
-        ]);
+        Article::find($id)->Delete();
+        return back()->with('success', 'Categories has been Delete');
     }
 }

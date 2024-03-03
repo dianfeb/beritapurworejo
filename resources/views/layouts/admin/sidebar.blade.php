@@ -7,17 +7,7 @@
             <span>Dashboard</span>
         </a>    
     </li>
-    <li class="sidebar-item  has-sub">
-        <a href="#" class='sidebar-link'>
-            <i data-feather="triangle" width="20"></i> 
-            <span>Components</span>
-        </a>       
-        <ul class="submenu ">           
-            <li>
-                <a href="component-alert.html">Alert</a>
-            </li>           
-        </ul>       
-    </li>
+
     <li class="sidebar-item ">
         <a href="{{ url('categories') }}" class='sidebar-link'>
             <i data-feather="file-plus" width="20"></i> 
@@ -41,6 +31,18 @@
             <i data-feather="user" width="20"></i> 
             <span>User</span>
         </a>    
+    </li>
+
+    <li class="sidebar-item  has-sub">
+        <a href="#" class='sidebar-link'>
+            <i data-feather="triangle" width="20"></i> 
+            <span>Components</span>
+        </a>       
+        <ul class="submenu ">           
+            <li>
+                <a href="component-alert.html">Alert</a>
+            </li>           
+        </ul>       
     </li>
     
 </ul>
