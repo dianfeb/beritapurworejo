@@ -7,13 +7,14 @@
             <span>Dashboard</span>
         </a>    
     </li>
-
+    @if (auth()->user()->role == 1)
     <li class="sidebar-item ">
         <a href="{{ url('categories') }}" class='sidebar-link'>
             <i data-feather="file-plus" width="20"></i> 
             <span>Categories</span>
         </a>    
     </li>
+    @endif
     <li class="sidebar-item ">
         <a href="{{ url('articles') }}" class='sidebar-link'>
             <i data-feather="file-text" width="20"></i> 

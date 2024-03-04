@@ -23,7 +23,9 @@
                 <div class="row mb-2">
                     <div class="card">
                         <div class="card-header">
+                            @if (auth()->user()->role == 1)
                             <a href="{{ url('users/create') }}" class="btn btn-outline-primary mb-3" >Register</a>
+                            @endif
                                 @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>
@@ -66,10 +68,14 @@
                                             <td>
                                                 <a class="btn btn-outline-warning" href="{{ url('users/'.$row->id.'/edit') }}"> <i class="badge-circle badge-circle-white text-secondary font-medium-1"
                                                     data-feather="edit"></i></a>
+                                                    @if (auth()->user()->role == 1)
+                                                    @if ($row->id != auth()->user()->id)
                                                 <button data-bs-toggle="modal" class="btn btn-outline-danger" data-bs-target="#inlineFormDelete{{ $row->id }}">
                                                     <i class="badge-circle badge-circle-white text-secondary font-medium-1"
                                                         data-feather="trash-2"></i>
                                                 </button>
+                                                @endif
+                                                @endif
 
                                             </td>
 
