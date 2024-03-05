@@ -1,7 +1,11 @@
 <?php
 
+use App\Providers\AppServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
+use Intervention\Image\ImageServiceProvider;
+use Yajra\DataTables\DataTablesServiceProvider;
+use UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider;
 
 return [
 
@@ -172,6 +176,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\SideWidgetProvider::class,
     ])->toArray(),
 
     /*

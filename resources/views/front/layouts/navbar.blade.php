@@ -15,10 +15,12 @@
              <div class="collapse navbar-collapse" id="main_nav">
                 <ul class="navbar-nav me-auto">
           
-                   <li class="nav-item"><a class='nav-link' href='/blog'> Articles </a></li>
-                   <li class="nav-item"><a class='nav-link' href='/contact'> Contact </a></li>
-                   <li class="nav-item"><a class='nav-link' href='/login'> Login </a></li>
-                   <li class="nav-item"><a class="nav-link" href="https://themeix.com/product/newsfeed-news-magazine-website-html-site-template/"> Buy Now <span>NEW</span></a></li>
+                   <li class="nav-item"><a class='nav-link' href='/'>Home </a></li>
+                   @foreach ($categories as $item)
+                   <li class="nav-item"><a class='nav-link' href='/contact'>{{ $item->name }} </a></li>
+                   @endforeach
+                   
+
                 </ul>
              </div>
              <div class="search-modal" data-bs-toggle="modal" data-bs-target="#search-modal"><a class="nav-link"
