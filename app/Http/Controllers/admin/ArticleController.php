@@ -146,7 +146,11 @@ class ArticleController extends Controller
     public function destroy(string $id)
     {
         //
-        Article::find($id)->Delete();
-        return back()->with('success', 'Categories has been Delete');
+        $data = Article::find($id);
+        // Storage::delete('public/admin/article/'.$data->img);
+        $data->delete();
+        return response()->json([
+            'message' => 'Data article has been deleted'
+        ]);
     }
 }

@@ -49,14 +49,13 @@
                             @endif
                         </div>
                         <div class="card-body">
-                            <table class='table table-striped table-bordered' id="table1">
+                            <table class='table table-striped table-bordered' id="table1" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Category</th>
+                                     
                                         <th>Title</th>
                                         <th>Status</th>
-                                        <th>Publish Date</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -81,11 +80,6 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-{{-- <script>
-    $(document).ready(function(){
-        $('#table1').DataTable();
-    });
-</script> --}}
 {{-- sweet alert --}}
  <script>
    const swal = $('.swal').data('swal');
@@ -148,10 +142,7 @@
               data:'DT_RowIndex',
               name:'DT_RowIndex'
             },
-                {
-              data:'category_id',
-              name:'category_id'
-            },
+             
             {
               data:'title',
               name:'title'
@@ -161,10 +152,7 @@
               data:'status',
               name:'status'
             },
-            {
-              data:'publish_date',
-              name:'publish_date'
-            },
+         
             {
               data:'button',
               name:'button'

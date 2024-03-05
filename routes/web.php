@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\front\HomeController as FrontHomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +21,11 @@ use App\Http\Controllers\admin\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [FrontHomeController::class, 'index']);
 
 
 Route::middleware('auth')->group(function(){
