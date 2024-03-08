@@ -11,14 +11,14 @@
                         <article class="blog-style3 border-0 card mb-4 position-relative">
                             <div class="feature-image">
                                 <div class="image-frame image-hover-style-1">
-                                    <a href='/single'> <img class="lazyload"
+                                    <a href='{{ url('detail/'.$item->slug) }}'> <img class="lazyload"
                                             src="{{ asset('storage/admin/article/' . $item->img) }}" alt="image"
                                             class="w-100"></a>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <a class='badge bg-danger' href='/category'>{{ $item->category->name }}</a>
-                                <h2><a href='/single'>{{ $item->title }}</a>
+                                <a class='badge bg-danger' href='{{ url('category/'. $item->slug) }}'>{{ $item->category->name }}</a>
+                                <h2><a href='{{ url('detail/'.$item->slug) }}'>{{ $item->title }}</a>
                                 </h2>
                                 <div class="row">
                                     <div class="col-lg-6">
@@ -64,7 +64,7 @@
                         <div class="col-md-12">
                             <div class="section-title-block d-flex pb-3">
                                 <h3 class="section-widget-title">{{ $category->name }}</h3>
-                                <a class='text-uppercase section-title-link' href='/category'>
+                                <a class='text-uppercase section-title-link' href='{{ url('category/'. $category->slug) }}'>
                                     See all
                                     <svg width="24" height="24" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -80,7 +80,7 @@
                                 <article data-aos="fade-up" class="blog-style2 card mb-4">
                                     <div class="feature-image">
                                         <div class="image-frame image-hover-style-1">
-                                            <a href='/single'><img class="lazyload"
+                                            <a href='{{ url('detail/'.$article->slug) }}'><img class="lazyload"
                                                     src="{{ asset('storage/admin/article/' . $article->img) }}"
                                                     alt="image" class="w-100"></a>
                                         </div>
@@ -88,7 +88,7 @@
                                     <div data-aos="fade-in" class="card-body  d-md-flex align-items-center">
                                         <div class="card-flex-content">
                                             <a class='badge bg-primary' href='/category'>{{ $category->name }}</a>
-                                            <h4><a href='/single'>{{ $article->title }}</a></h4>
+                                            <h4><a href='{{ url('detail/'.$article->slug) }}'>{{ $article->title }}</a></h4>
                                             {!! Str::limit($article->desc, 100) !!}
                                             <div class="row">
                                                 <div class="col-lg-6">
@@ -132,7 +132,7 @@
                 <div class="col-md-12">
                     <div class="section-title-block d-flex pb-3">
                         <h3 class="section-widget-title">Editors Pick</h3>
-                        <a class='text-uppercase section-title-link' href='/category'>
+                        <a class='text-uppercase section-title-link' href="">
                             See all
                             <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -148,14 +148,14 @@
                     <article class="blog-style3 border-0 card mb-4 position-relative">
                         <div class="feature-image">
                             <div class="image-frame image-hover-style-1">
-                                <a href='/single'> <img class="lazyload"
+                                <a href=''> <img class="lazyload"
                                         src="https://d33wubrfki0l68.cloudfront.net/26b26bfa6f6b8dc6d5d38bb17e60662778d44422/e4a3a/assets/images/blog-img36.jpg"
                                         alt="image" class="w-100"></a>
                             </div>
                         </div>
                         <div class="card-body">
                             <a class='badge bg-danger' href='/category'>Political</a>
-                            <h2><a href='/single'>No. 19 Kansas upsets No. 2 Baylor as Bears</a></h2>
+                            <h2><a href=''>No. 19 Kansas upsets No. 2 Baylor as Bears</a></h2>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="author-block">
@@ -180,14 +180,14 @@
                     <article class="blog-style3 border-0 card mb-4 position-relative">
                         <div class="feature-image">
                             <div class="image-frame image-hover-style-1">
-                                <a href='/single'> <img class="lazyload"
+                                <a href=''> <img class="lazyload"
                                         src="https://d33wubrfki0l68.cloudfront.net/59645d6a6f17b1d82031adfbcd4f4a8eaeb0b335/81a3e/assets/images/blog-img34.jpg"
                                         alt="image" class="w-100"></a>
                             </div>
                         </div>
                         <div class="card-body">
                             <a class='badge bg-secondary' href='/category'>WordPress</a>
-                            <h2><a href='/single'>100 things to do while stuck inside due to a pandemic</a></h2>
+                            <h2><a href='  '>100 things to do while stuck inside due to a pandemic</a></h2>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="author-block">

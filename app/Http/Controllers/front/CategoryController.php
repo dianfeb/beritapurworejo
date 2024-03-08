@@ -6,28 +6,21 @@ use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
 
-class HomeController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-        
-        $latest_post = Article::with('category')->where('status', 1)->take(2)->latest()->get();
-        $categories = Category::latest()->get();
-    
-        $articles = DB::table('categories')
-            ->join('articles', 'categories.id', '=', 'articles.category_id')
-            ->select('categories.name as name', 'categories.slug as slug', 'articles.*')
-            ->orderByDesc('articles.id')
-            ->get();
-    
-        return view('front.home', compact('categories', 'articles', 'latest_post'));
-
+    public function index($slugCategory) {
+        return view('front.categories', [
+            
+            'articles' =>Article::whereHas('Category', function($q) use ($slugCategory) {
+                $q->where('slug', $slugCategory);
+            })->latest()->paginate(1),
+            'categories' => Category::latest()->get(),
+            'category' => $slugCategory,
+        ]);
     }
 
     /**

@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\front\HomeController as FrontHomeController;
+use App\Http\Controllers\front\ArticleController as FrontArticleController;
+use App\Http\Controllers\front\CategoryController as FrontCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,3 +53,5 @@ Route::middleware('auth')->group(function(){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/category/{slug}', [FrontCategoryController::class, 'index']);
+Route::get('/detail/{slug}', [FrontArticleController::class, 'show']);
