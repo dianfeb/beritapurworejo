@@ -6,7 +6,7 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <!-- Title -->
-   <title>NewsFeed - Responsive News, Magazine Site Template</title>
+   <title>Berita Purworejo | Berita Terkni Seputar Kota Purworejo</title>
    <!-- Favicon -->
    <link rel="icon" href="assets/images/favicon-32x32.png">
    <link rel="preconnect" href="https://fonts.gstatic.com">

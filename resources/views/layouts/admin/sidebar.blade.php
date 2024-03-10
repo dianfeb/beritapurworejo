@@ -14,6 +14,13 @@
             <span>Categories</span>
         </a>    
     </li>
+
+    <li class="sidebar-item ">
+        <a href="{{ url('sosmed') }}" class='sidebar-link'>
+            <i data-feather="file-plus" width="20"></i> 
+            <span>Sosial Media</span>
+        </a>    
+    </li>
     @endif
     <li class="sidebar-item ">
         <a href="{{ url('articles') }}" class='sidebar-link'>

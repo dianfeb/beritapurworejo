@@ -17,7 +17,7 @@
                 </div>
             </a>
             <div class="post-content pt-md-2 pt-xl-0 pt-0">
-                <h6 class="post-title"><a href="{{ url('detail/'.$item->slug) }}'>{{ $item->title }}">{{ $item->title }}</a>
+                <h6 class="post-title"><a href="{{ url('detail/'.$item->slug) }}">{{ $item->title }}</a>
                 </h6>
                 <div class="post-meta">
                     <span class="date-info small">

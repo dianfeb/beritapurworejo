@@ -21,10 +21,15 @@ class HomeController extends Controller
         $categories = Category::latest()->get();
     
         $articles = DB::table('categories')
-            ->join('articles', 'categories.id', '=', 'articles.category_id')
-            ->select('categories.name as name', 'categories.slug as slug', 'articles.*')
-            ->orderByDesc('articles.id')
-            ->get();
+        ->join('articles', 'categories.id', '=', 'articles.category_id')
+        ->select('categories.name as name', 'categories.slug as slug', 'articles.*')
+        ->orderByDesc('articles.id')
+        ->get()
+        ->groupBy('name') // Kelompokkan hasil berdasarkan nama kategori
+        ->map(function ($categoryArticles) {
+            return $categoryArticles->take(4); // Ambil 4 artikel dari setiap kategori
+        })
+        ->collapse(); // Menggabungkan hasil dari semua kelompok
     
         return view('front.home', compact('categories', 'articles', 'latest_post'));
 

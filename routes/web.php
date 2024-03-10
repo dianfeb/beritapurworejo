@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Auth;
 use UniSharp\LaravelFilemanager\Lfm;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\admin\SosmedController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\admin\DashboardController;
@@ -42,6 +44,7 @@ Route::middleware('auth')->group(function(){
     Route::resource('/articles', ArticleController::class);
     
     Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::resource('/sosmed', SosmedController::class);
     
     Route::group(['prefix' => 'laravel-filemanager'], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
