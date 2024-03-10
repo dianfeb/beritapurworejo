@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Sosmed;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Support\Facades\View;
@@ -34,6 +35,12 @@ class SideWidgetProvider extends ServiceProvider
             // ..
             $category = Category::latest()->get();
             $view->with('categories', $category);
+        });
+
+        View::composer('front.layouts.template', function ($view) {
+            // ..
+            $sosmed = Sosmed::all();
+            $view->with('sosmed', $sosmed);
         });
     }
 }

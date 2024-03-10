@@ -17,7 +17,7 @@
           
                    <li class="nav-item"><a class='nav-link' href='/'>Home </a></li>
                    @foreach ($categories as $item)
-                   <li class="nav-item"><a class='nav-link' href='/contact'>{{ $item->name }} </a></li>
+                   <li class="nav-item"><a class='nav-link' href='{{ url('category/'. $item->slug) }}'>{{ $item->name }} </a></li>
                    @endforeach
                    
 
@@ -32,10 +32,10 @@
              <div class="modal-dialog">
                 <div class="modal-content">
                    <div class="modal-body">
-                      <form class="forms">
+                     <form action="{{ route('search') }}" method="POST">
                          <div class="input-group">
                             <span class="input-group-text"><i class="fa fa-search"></i></span>
-                            <input type="text" class="form-control" placeholder="Search Here">
+                            <input type="text" class="form-control" name="keyword" placeholder="Search Here">
                          </div>
                       </form>
                    </div>

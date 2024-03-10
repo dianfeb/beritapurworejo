@@ -76,10 +76,24 @@
                     <div class="footer-widget">
                         <h4 class="mb-2">Social Media</h4>
                         <ul class="footer-nav list-inline">
-                            <li><a href="#"><span class="icon"><i class="fab fa-facebook-f"></i></span>Facebook</a></li>
-                            <li><a href="#"><span class="icon"><i class="fab fa-twitter"></i></span>Twitter</a></li>
-                            <li><a href="#"><span class="icon"><i class="fab fa-instagram"></i></span>Instagram</a></li>
-                            <li><a href="#"><span class="icon"><i class="fab fa-linkedin"></i></span>Linkedin</a></li>
+                            @if(isset($sosmed[3]))
+                            <li><a href="http://{{ $sosmed[3]['link'] }}" target="_blank"><span class="icon"><i class="fab fa-facebook-f"></i></span>Facebook</a></li>
+                        @endif
+
+                        @if(isset($sosmed[2]))
+                        <li><a href="http://{{ $sosmed[2]['link'] }}" target="_blank"><span class="icon"><i class="fab fa-twitter"></i></span>Twitter</a></li>
+                        @endif
+
+                        @if(isset($sosmed[1]))
+                        <li><a href="http://{{ $sosmed[1]['link'] }}" target="_blank"><span class="icon"><i class="fab fa-instagram"></i></span>Instagram</a></li>
+                        @endif
+
+                        @if(isset($sosmed[0]))
+                        <li><a href="http://{{ $sosmed[0]['link'] }}" target="_blank"><span class="icon"><i class="fab fa-linkedin"></i></span>Linkedin</a></li>
+                        @endif
+                           
+                            
+                           
                         </ul>
                     </div>
                 </div>

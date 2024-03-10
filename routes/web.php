@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\SosmedController;
+use App\Http\Controllers\front\SearchController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\admin\DashboardController;
@@ -49,6 +50,7 @@ Route::middleware('auth')->group(function(){
     Route::group(['prefix' => 'laravel-filemanager'], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
+
 });
 
 
@@ -58,3 +60,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/category/{slug}', [FrontCategoryController::class, 'index']);
 Route::get('/detail/{slug}', [FrontArticleController::class, 'show']);
+Route::post('/search', [SearchController::class, 'index'])->name('search');
