@@ -40,12 +40,13 @@ class ArticleController extends Controller
                 
             })
 
+
             ->addColumn('button', function($article) {
                 return '
                 
-                <a class="btn btn-outline-info" href="articles/'.$article->id.'">View</a>
-                <a class="btn btn-outline-warning" href="articles/'.$article->id.'/edit">Edit</a>
-                <a class="btn btn-outline-danger" href="#" onclick="deleteArticle(this)" data-id="'.$article->id.'">Delete</a>
+                <a class="btn btn-outline-info" href="articles/'.$article->id.'"><i class="fa fa-eye"></i></a>
+                <a class="btn btn-outline-warning" href="articles/'.$article->id.'/edit"><i class="fa fa-edit"></i></a>
+                <a class="btn btn-outline-danger" href="#" onclick="deleteArticle(this)" data-id="'.$article->id.'"><i class="fa fa-trash"></i></a>
     ';
             
             })

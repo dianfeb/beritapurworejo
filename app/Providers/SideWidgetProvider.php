@@ -31,16 +31,6 @@ class SideWidgetProvider extends ServiceProvider
             $view->with('populars', $populars);
         });
 
-        View::composer('front.layouts.navbar', function ($view) {
-            // ..
-            $category = Category::latest()->get();
-            $view->with('categories', $category);
-        });
-
-        View::composer('front.layouts.template', function ($view) {
-            // ..
-            $sosmed = Sosmed::all();
-            $view->with('sosmed', $sosmed);
-        });
+        
     }
 }

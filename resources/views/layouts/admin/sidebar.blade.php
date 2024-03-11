@@ -21,6 +21,13 @@
             <span>Sosial Media</span>
         </a>    
     </li>
+
+    <li class="sidebar-item ">
+        <a href="{{ url('config') }}" class='sidebar-link'>
+            <i data-feather="file-plus" width="20"></i> 
+            <span>Modul Config</span>
+        </a>    
+    </li>
     @endif
     <li class="sidebar-item ">
         <a href="{{ url('articles') }}" class='sidebar-link'>

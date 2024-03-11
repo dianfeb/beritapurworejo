@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\admin\ConfigController;
 use App\Http\Controllers\admin\SosmedController;
 use App\Http\Controllers\front\SearchController;
 use App\Http\Controllers\Admin\ArticleController;
@@ -50,6 +51,8 @@ Route::middleware('auth')->group(function(){
     Route::group(['prefix' => 'laravel-filemanager'], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
+
+    Route::resource('/config', ConfigController::class);
 
 });
 
