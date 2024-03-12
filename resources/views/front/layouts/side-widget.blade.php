@@ -10,7 +10,7 @@
         </div>
         @foreach ($populars as $item)
         <article class="blog-style5 d-flex  d-md-block d-xl-flex align-items-center">
-            <a aria-label='Post Title Here' href="{{ url('detail/'.$item->slug) }}'>{{ $item->title }}">
+            <a aria-label='Post Title Here' href="{{ url('detail/'.$item->slug) }}">
                 <div class="post-img-wrap position-relative overflow-hidden">
                     <img class="lazyload post-img"
                         src="{{ asset('storage/admin/article/'.$item->img) }}">

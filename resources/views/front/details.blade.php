@@ -14,7 +14,8 @@
                     </div>
                     <div class="my-1">
                         <h1>{{ $article->title }}</h1>
-                        <p class="m-0 small"> Posted on {{ $article->publish_date }}</p>
+                        <p class="m-0 small" style="font-weight: bold"> Posted on {{ $article->publish_date }}</p>
+                        <p class="m-0 small" style="font-weight: bold"> By {{ $article->user->name }}</p>
                        
                     </div>
                     <div class="entry-content pb-3 typofix">

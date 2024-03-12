@@ -60,7 +60,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $row->name }}</td>
                                             <td>
-                                                <a class="btn btn-outline-warning" href="{{ url('users/'.$row->id.'/edit') }}"> <i class="badge-circle badge-circle-white text-secondary font-medium-1"
+                                                <a class="btn btn-outline-warning" href="{{ url('config/'.$row->id.'/edit') }}"> <i class="badge-circle badge-circle-white text-secondary font-medium-1"
                                                     data-feather="edit"></i></a>
                                                
                                             </td>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Zaira - News Magazine HTML Template</title>
+        <title>{{ $config['Title'] }}</title>
         <meta name="description" content="Zaira - News Magazine HTML Template">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,7 +14,7 @@
         <!-- CSS here -->
         <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}">
        
-        <link rel="stylesheet" href="{{ asset('front/animate.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('front/css/animate.min.css') }}">
     
         <link rel="stylesheet" href="{{ asset('front/css/fontawesome-all.min.css') }}">
        
@@ -27,7 +27,7 @@
 
 		<!-- Scroll-top -->
         <button class="scroll-top scroll-to-target" data-target="html">
-            <i class="fab fa-angle-up"></i>
+            <i class="fa fa-angle-up"></i>
         </button>
         <!-- Scroll-top-end-->
 
@@ -74,7 +74,7 @@
                         
                     </div>
                 </div>
-                <div class="col-xxl-2 col-xl-3 col-lg-6 col-md-6 col-sm-6 pb-3">
+                <div class="col-xxl-2 col-xl-3 col-lg-6 col-md-6 col-sm-6 pb-3 col-6">
                     <div class="footer-widget">
                         <h4 class="mb-2">Navigation</h4>
                         <ul class="footer-nav list-inline">
@@ -85,7 +85,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-xxl-2 col-xl-3 col-lg-6 col-md-6 col-sm-6 pb-3">
+                <div class="col-xxl-2 col-xl-3 col-lg-6 col-md-6 col-sm-6 pb-3 col-6">
                     <div class="footer-widget">
                         <h4 class="mb-2">Social Media</h4>
                         <ul class="footer-nav list-inline">
@@ -115,9 +115,9 @@
                     <div class="footer-widget">
                         <h4 class="mb-2">Contact Info</h4>
                         <ul class="footer-nav list-inline">
-                            <li><a href="#"><span class="icon"><i class="fab fa-map-pin"></i></span>{{ $config['Alamat'] }}</a></li>
-                            <li><a href="#"><span class="icon"><i class="fab fa-envelope-open"></i></span>{{ $config['Email'] }}</a></li>
-                            <li><a href="#"><span class="icon"><i class="fab fa-phone"></i></span>{{ $config['Telepon'] }}</a></li>
+                            <li><a href="#"><span class="icon"><i class="fa fa-map-pin"></i></span>{{ $config['Alamat'] }}</a></li>
+                            <li><a href="#"><span class="icon"><i class="fa fa-envelope-open"></i></span>{{ $config['Email'] }}</a></li>
+                            <li><a href="#"><span class="icon"><i class="fa fa-phone"></i></span>{{ $config['Telepon'] }}</a></li>
                             <li><a href="#"><span class="icon"><i class="fab fa-whatsapp"></i></span>+{{ $config['Whatsapp'] }}</a></li>
                         </ul>
                     </div>
@@ -132,7 +132,7 @@
                         </span></div>
                 </div>
             </div>
-            <a href="#" class="footer-back"><i class="fab fa-chevron-up"></i></a>
+            <a href="#" class="footer-back"><i class="fa fa-chevron-up"></i></a>
         </div>
     </footer>
 

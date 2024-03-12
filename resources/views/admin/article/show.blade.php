@@ -69,6 +69,11 @@
                                     <th>Description</th>
                                     <td> {!! $article->desc !!}</td>
                                 </tr>
+
+                                <tr>
+                                    <th>Title</th>
+                                    <td>: {{ $article->user->name }}</td>
+                                </tr>
                             </table>
                             <div class="">
                                 <a class="btn btn-info" href="{{ url('articles') }}">Back</a>

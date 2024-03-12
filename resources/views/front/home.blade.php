@@ -24,10 +24,7 @@
                                     <div class="col-lg-6">
                                         <div class="author-block">
                                             <ul class="avatar list-inline mb-0">
-                                                <li class="list-inline-item"><a class='small' href='/author'><img
-                                                            src="https://d33wubrfki0l68.cloudfront.net/5761cb31d4865ac5eeb4cd56d41f774ce9fe4440/364a5/assets/images/author-img.jpg"
-                                                            alt="Jhon Doe" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                            title="Jhon Doe"> Jhon Doe</a></li>
+                                                <li class="list-inline-item"><a class='small' href='/author'>{{ $item->user->name }}</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -50,7 +47,7 @@
     <div class="ads-area">
         <div class="container">
             <div class="text-center  themeix-ads"><a href="#"><img class="lazyload"
-                        src="https://d33wubrfki0l68.cloudfront.net/93a138ace03417226cbeb951061e2578aa3ee7a5/c83ea/assets/images/blog-ads.png"
+                        src="{{ asset('storage/admin/config/' . $config['adv']) }}"
                         alt="image" /></a>
             </div>
         </div>
@@ -87,7 +84,7 @@
                                     </div>
                                     <div data-aos="fade-in" class="card-body  d-md-flex align-items-center">
                                         <div class="card-flex-content">
-                                            <a class='badge bg-primary' href='/category'>{{ $category->name }}</a>
+                                            <a class='badge bg-primary' href="{{ url('category/'. $category->slug) }}">{{ $category->name }}</a>
                                             <h4><a href='{{ url('detail/'.$article->slug) }}'>{{ $article->title }}</a></h4>
                                             {!! Str::limit($article->desc, 100) !!}
                                             <div class="row">
@@ -95,9 +92,7 @@
                                                     <div class="author-block">
                                                         <ul class="avatar list-inline mb-0">
                                                             <li class="list-inline-item"><a class='small'
-                                                                    href='/author'><img src="john dee" alt="Jhon Doe"
-                                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                                        title=""> Jhon Doe</a></li>
+                                                                    href='/author'>{{ $article->user->name }}</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>

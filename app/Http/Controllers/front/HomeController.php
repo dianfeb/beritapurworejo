@@ -17,21 +17,21 @@ class HomeController extends Controller
     {
         //
         
-        $latest_post = Article::with('category')->where('status', 1)->take(2)->latest()->get();
+        $latest_post = Article::with('Category', 'User')->where('status', 1)->take(2)->latest()->get();
         $categories = Category::latest()->get();
     
-        $articles = DB::table('categories')
-        ->join('articles', 'categories.id', '=', 'articles.category_id')
+        $articles = Article::join('categories', 'categories.id', '=', 'articles.category_id')
         ->select('categories.name as name', 'categories.slug as slug', 'articles.*')
         ->orderByDesc('articles.id')
+        ->with('user') // Assuming 'user' is the relationship in your Article model
         ->get()
-        ->groupBy('name') // Kelompokkan hasil berdasarkan nama kategori
+        ->groupBy('name') // Group by category name
         ->map(function ($categoryArticles) {
-            return $categoryArticles->take(4); // Ambil 4 artikel dari setiap kategori
+            return $categoryArticles->take(4); // Take 4 articles from each category
         })
-        ->collapse(); // Menggabungkan hasil dari semua kelompok
+        ->collapse(); // Combine results from all groups
     
-        return view('front.home', compact('categories', 'articles', 'latest_post'));
+    return view('front.home', compact('categories', 'articles', 'latest_post'));
 
     }
 

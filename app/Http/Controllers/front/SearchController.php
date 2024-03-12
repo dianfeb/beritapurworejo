@@ -25,6 +25,7 @@ class SearchController extends Controller
         return view('front.search', [
             'latest_post' => Article::with('category')->latest()->first(),
             'articles' => $articles,
+            'keyword' => $keyword,
             'categories' => Category::latest()->get()
         ]);
     }

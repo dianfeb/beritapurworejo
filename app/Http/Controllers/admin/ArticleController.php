@@ -79,6 +79,7 @@ class ArticleController extends Controller
         $fileName =  uniqid().'.'.$file->getClientOriginalExtension(); //ambil format gambar
         $file->storeAs('public/admin/article/', $fileName); //folder simpan
 
+        $data['user_id'] = auth()->user()->id;
         $data['img'] = $fileName;
         $data['slug'] = Str::slug($data['title']);
 
@@ -94,7 +95,8 @@ class ArticleController extends Controller
     {
         //
         return view('admin.article.show', [
-            'article' => Article::find($id)
+            // with untuk memanggil relasi
+            'article' => Article::with(['User', 'Category'])->find($id)
         ]);
     }
 
@@ -133,7 +135,7 @@ class ArticleController extends Controller
         }
         
 
-      
+        $data['user_id'] = auth()->user()->id;
         $data['slug'] = Str::slug($data['title']);
 
         Article::find($id)->update($data);

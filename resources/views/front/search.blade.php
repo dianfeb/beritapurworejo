@@ -1,17 +1,23 @@
 @extends('front.layouts.template')
 
 @section('content')
+
+
+
     <div class="page-content-area pb-5">
         <div class="themeix-page-title-area py-4 bg-light">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1></h1>
-
-                    </div>
+              <div class="row">
+                <div class="col-md-12">
+                    @if ($keyword)
+                    <h1>Pencarian: {{ $keyword }}</h1>
+                    @endif
+                 
+                 
                 </div>
+              </div>
             </div>
-        </div>
+          </div>
         <div class="blog-block-1 py-5 ">
             <div class="container">
                 <div class="row">
@@ -34,9 +40,7 @@
                                             <div class="col-lg-6">
                                                 <div class="author-block">
                                                     <ul class="avatar list-inline mb-0">
-                                                        <li class="list-inline-item"><a class='small' href='/author'><img
-                                                                    src="john dee" alt="Jhon Doe" data-bs-toggle="tooltip"
-                                                                    data-bs-placement="top" title=""> Jhon Doe</a>
+                                                        <li class="list-inline-item"><a class='small' href='/author'>{{ $item->user->name }}</a>
                                                         </li>
                                                     </ul>
                                                 </div>

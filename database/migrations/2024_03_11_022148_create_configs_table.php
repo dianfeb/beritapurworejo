@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('configs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->longText('value');
+            $table->longText('value')->nullable();
+            $table->string('img')->nullable();
             $table->enum('type', ['text', 'images']);
             $table->enum('status', ['off', 'on']);
             $table->timestamps();

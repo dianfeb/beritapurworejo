@@ -261,7 +261,13 @@
     display: none;
 }
 
+.logo img {
+    max-height: 35px;
+}
 
+.blog-style3 .card-body .h2 a, .blog-style3 .card-body .h3 a, .blog-style3 .card-body .h4 a, .blog-style3 .card-body .h5 a, .blog-style3 .card-body .h6 a, .blog-style3 .card-body h2 a, .blog-style3 .card-body h3 a, .blog-style3 .card-body h4 a, .blog-style3 .card-body h5 a, .blog-style3 .card-body h6 a {
+    font-size: 18px;
+}
 
 
 }

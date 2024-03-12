@@ -17,14 +17,14 @@
 
     <li class="sidebar-item ">
         <a href="{{ url('sosmed') }}" class='sidebar-link'>
-            <i data-feather="file-plus" width="20"></i> 
+            <i data-feather="instagram" width="20"></i> 
             <span>Sosial Media</span>
         </a>    
     </li>
 
     <li class="sidebar-item ">
         <a href="{{ url('config') }}" class='sidebar-link'>
-            <i data-feather="file-plus" width="20"></i> 
+            <i data-feather="heart" width="20"></i> 
             <span>Modul Config</span>
         </a>    
     </li>

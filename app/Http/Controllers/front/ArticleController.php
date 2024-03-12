@@ -14,10 +14,17 @@ class ArticleController extends Controller
     public function show($slug)
     {
         //
-        return view ('front.details', [
-            'article' => Article::whereSlug($slug)->first(),
-            'categories' => Category::latest()->get()
-        ]);
+      // Find the article by slug
+    $article = Article::whereSlug($slug)->firstOrFail();
+
+    // Increment views
+    $article->increment('views');
+
+    // Get the latest categories
+    $categories = Category::latest()->get();
+
+    // Return the view with the article and categories
+    return view('front.details', compact('article', 'categories'));
     }
 
  
