@@ -1,13 +1,15 @@
 
 <!doctype html>
-<html class="no-js" lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>{{ $config['Title'] }}</title>
-        <meta name="description" content="Zaira - News Magazine HTML Template">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="author" content="Berita Purworejo | Info Purworejo dan Sekitar">
+        <meta name="robots" content="index,  follow">
+        @stack('meta-seo')
+        <title>@yield('title')</title>
 		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
         <!-- Place favicon.ico in the root directory -->
 

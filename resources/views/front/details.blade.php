@@ -1,5 +1,15 @@
 @extends('front.layouts.template')
-
+@push('meta-seo')
+<meta name="description" content="{{ Str::limit(strip_tags($article->desc), 100, '...') }}">
+<meta name="keyword" value="Berita Purworejo, kota purworejo, media purworejo, info purworejo, purworejo hari ini, berita online purworejo, purworejo">
+<meta property="og:title" value="{{ $article->title. " | Berita Purworejo" }}">
+<meta property="og:url" value="{{ url()->current() }}">
+<meta property="og:site_name" value="Berita Purworejo">
+<meta property="og:keyword" value="Berita Purworejo, kota purworejo, media purworejo, info purworejo, purworejo hari ini, berita online purworejo, purworejo">
+<meta property="og:description" value="{{ Str::limit(strip_tags($article->desc), 100, '...') }}">
+<meta property="og:image" value="{{ asset('storage/admin/article/' .$article->img) }}">
+@endpush
+@section('title', 'Berita Purworejo | ' . $article->title)
 @section('content')
        <!--/// Page Content /// -->
        <div class="page-content-area py-5">

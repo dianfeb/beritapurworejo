@@ -1,6 +1,18 @@
 @extends('front.layouts.template')
 
+@push('meta-seo')
+<meta name="description" content="Berita Purworejo | Media Terkini dan Terupdate Seputar Purworejo dan Sekitar">
+<meta name="keyword" value="Berita Purworejo, kota purworejo, media purworejo, info purworejo, purworejo hari ini, berita online purworejo, purworejo">
 
+{{-- meta social --}}
+<meta property="og:title" value="Berita Purworejo | Media Terkini dan Terupdate Seputar Purworejo dan Sekitar">
+<meta property="og:url" value="{{ url()->current() }}">
+<meta property="og:site_name" value="Berita Purworejo">
+<meta property="og:keyword" value="Berita Purworejo, kota purworejo, media purworejo, info purworejo, purworejo hari ini, berita online purworejo, purworejo">
+<meta property="og:description" value="Berita Purworejo | Media Terkini dan Terupdate Seputar Purworejo dan Sekitar">
+{{-- <meta property="og:image" value="{{ asset('storage/admin/article/' . $latest_post->img) }}"> --}}
+@endpush
+@section('title',  'Berita Purworejo | Info Purworejo dan Sekitar')
 @section('content')
     <!--/// Hero Area /// -->
     <div class="hero-area pt-3 pb-3  pt-lg-2 pb-lg-3">
