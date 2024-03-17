@@ -12,6 +12,7 @@ class Article extends Model
 {
     use HasFactory;
     protected $fillable = ["category_id", "user_id", "title", "slug", "desc", "img", "status", "views","publish_date"];
+    protected $dates = ['created_at'];
 
     //relasi ke categories
 

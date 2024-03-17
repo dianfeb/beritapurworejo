@@ -69,11 +69,12 @@
                                    
                            </div>
                            <div class="header-search-wrap header-search-wrap-three">
-                              <form action="{{ route('search') }}" method="POST">
-                                   <input type="text" name="keyword" placeholder="Search here . . .">
-                                   <button type="submit" ><i class="flaticon-search"></i></button>
-                               </form>
-                           </div>
+                            <form class="search-form" action="{{ route('search') }}" method="POST">
+                                @csrf <!-- Tambahkan CSRF token untuk keamanan -->
+                                <input type="text" class="keyword-input" name="keyword" placeholder="Search here . . .">
+                                <button type="submit"><i class="flaticon-search"></i></button>
+                            </form>
+                        </div>
                            <div class="mobile-nav-toggler"><i class="fa fa-bars"></i></div>
                        </nav>
                    </div>
@@ -90,7 +91,8 @@
                            </div>
                            <div class="mobile-search">
                             <form action="{{ route('search') }}" method="POST">
-                                   <input type="text" name="keyword" placeholder="Search here...">
+                                @csrf
+                                   <input type="text" class="keyword-mobile" name="keyword" placeholder="Search here...">
                                    <button><i class="flaticon-search"></i></button>
                                </form>
                            </div>

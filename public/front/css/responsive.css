@@ -269,7 +269,12 @@
     font-size: 18px;
 }
 
-
+.title-details {
+    font-size: 1.3em !important;
+}
+h2 {
+    line-height: 1;
+}
 }
 
 
@@ -283,4 +288,13 @@
 
 }
 
+@media only screen and (max-width: 767px) {
+    .about-us-content .sub-title {
+        font-size: 20px;
+    }
+
+    .about-us-content {
+        padding: 0 5px;
+    }
+}
 

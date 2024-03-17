@@ -70,6 +70,16 @@
                             </div>
                             @endif
 
+                            @if ($config['type'] == 'desc')
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="basicInput">Description</label>
+                                    <textarea id="ckeditor" name="value" rows="10">{{ old('value', $config->value)  }}</textarea>
+                                </div>
+                            </div>
+                                
+                            @endif
+
                          
 
 
@@ -93,3 +103,18 @@
     </div>
 @endsection
 
+@push('js')
+<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<script>
+    var options = {
+      filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+      filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+      filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+      filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
+      clipboard_handleImages:false
+    };
+  </script>
+<script>
+    CKEDITOR.replace('ckeditor', options);
+</script>
+@endpush

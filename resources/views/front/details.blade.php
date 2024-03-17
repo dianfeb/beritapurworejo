@@ -1,12 +1,12 @@
 @extends('front.layouts.template')
 @push('meta-seo')
-<meta name="description" content="{{ Str::limit(strip_tags($article->desc), 100, '...') }}">
+<meta name="description" content="{{ Str::limit(strip_tags($article->desc), 150, '...') }}">
 <meta name="keyword" value="Berita Purworejo, kota purworejo, media purworejo, info purworejo, purworejo hari ini, berita online purworejo, purworejo">
 <meta property="og:title" value="{{ $article->title. " | Berita Purworejo" }}">
 <meta property="og:url" value="{{ url()->current() }}">
 <meta property="og:site_name" value="Berita Purworejo">
 <meta property="og:keyword" value="Berita Purworejo, kota purworejo, media purworejo, info purworejo, purworejo hari ini, berita online purworejo, purworejo">
-<meta property="og:description" value="{{ Str::limit(strip_tags($article->desc), 100, '...') }}">
+<meta property="og:description" value="{{ Str::limit(strip_tags($article->desc), 150, '...') }}">
 <meta property="og:image" value="{{ asset('storage/admin/article/' .$article->img) }}">
 @endpush
 @section('title', 'Berita Purworejo | ' . $article->title)
@@ -18,13 +18,13 @@
                 <div class="col-md-7 col-lg-8">
                     <div class="featured-image pb-3">
                         <div class="image-frame image-hover-style-1">
-                            <a href='/single'> 
-                                <img src="{{ asset('storage/admin/article/' .$article->img) }}" alt="image" class="w-100 "></a>
+                           
+                                <img src="{{ asset('storage/admin/article/' .$article->img) }}" alt="image" class="w-100 ">
                         </div>
                     </div>
                     <div class="my-1">
-                        <h1>{{ $article->title }}</h1>
-                        <p class="m-0 small" style="font-weight: bold"> Posted on {{ $article->publish_date }}</p>
+                        <h1 class="title-details">{{ $article->title }}</h1>
+                        <p class="m-0 small" style="font-weight: bold"> Posted on {{ $article->formatted_created_at  }}</p>
                         <p class="m-0 small" style="font-weight: bold"> By {{ $article->user->name }}</p>
                        
                     </div>

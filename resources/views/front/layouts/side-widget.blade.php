@@ -22,7 +22,7 @@
                 <div class="post-meta">
                     <span class="date-info small">
 
-                        <span>2 mins to read</span>
+                        <span>{{ $item->formatted_created_at  }}</span>
                     </span>
                 </div>
             </div>

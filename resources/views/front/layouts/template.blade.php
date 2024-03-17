@@ -59,7 +59,7 @@
             <div class="col-md-8 m-auto">
               <h2 class="text-secondary">Subscribe to see what we're thinking</h2>
               <p>Subscribe to get access to premium content or contact us if you have any questions.</p>
-              <a href="#" class="btn btn-outline-light bg-danger text-white box-hover">Subscribe Now <i
+              <a href="mailto:{{ $config['Email'] }}" target="_blank" class="btn btn-outline-light bg-danger text-white box-hover">Subscribe Now <i
                   class="fas fa-envelope-open-text ms-1"></i></a>
             </div>
           </div>
@@ -67,7 +67,7 @@
       </div>
       <footer class="footer-area pt-5 pb-2">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-xxl-4 col-xl-3 col-lg-6 col-md-6 col-sm-6 pb-3  d-flex align-items-center">
                     <div class="footer-widget pe-2">                         
                         <img class="footer-logo mb-3" src="https://d33wubrfki0l68.cloudfront.net/da047f13938ef3073df84084c42973f94b813008/17ccd/assets/images/footer-brand.png" alt="">
@@ -80,10 +80,10 @@
                     <div class="footer-widget">
                         <h4 class="mb-2">Navigation</h4>
                         <ul class="footer-nav list-inline">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Advertisement</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="{{ url('/about') }}">About</a></li>
+                            <li><a href="{{ url('/advertisement') }}">Advertisement</a></li>
+                            <li><a href="{{ url('/contact') }}">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -144,6 +144,33 @@
     <script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('front/js/wow.min.js') }}"></script>
     <script src="{{ asset('front/js/main.js') }}"></script>
+    <script>
+        // Menambahkan event listener untuk keydown pada elemen dengan kelas 'keyword-input'
+    document.querySelector('.keyword-input').addEventListener('keydown', function(event) {
+        // Periksa apakah tombol yang ditekan adalah "Enter"
+        if (event.key === 'Enter') {
+            // Cek apakah nilai input kosong
+            if (this.value.trim() === '') {
+                // Mencegah perilaku default dari tombol "Enter"
+                event.preventDefault();
+            }
+        }
+    });
+</script>
+
+<script>
+    // Menambahkan event listener untuk keydown pada elemen dengan kelas 'keyword-input'
+document.querySelector('.keyword-mobile').addEventListener('keydown', function(event) {
+    // Periksa apakah tombol yang ditekan adalah "Enter"
+    if (event.key === 'Enter') {
+        // Cek apakah nilai input kosong
+        if (this.value.trim() === '') {
+            // Mencegah perilaku default dari tombol "Enter"
+            event.preventDefault();
+        }
+    }
+});
+</script>
     
 </body>
 </html>

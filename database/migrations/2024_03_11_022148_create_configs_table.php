@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->longText('value')->nullable();
             $table->string('img')->nullable();
-            $table->enum('type', ['text', 'images']);
+            $table->enum('type', ['text', 'images', 'desc']);
             $table->enum('status', ['off', 'on']);
             $table->timestamps();
         });

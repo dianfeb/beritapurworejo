@@ -60,7 +60,10 @@ Route::middleware('auth')->group(function(){
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/category/{slug}', [FrontCategoryController::class, 'index']);
 Route::get('/detail/{slug}', [FrontArticleController::class, 'show']);
 Route::post('/search', [SearchController::class, 'index'])->name('search');
+Route::get('/about', [FrontHomeController::class, 'about']);
+Route::get('/advertisement', [FrontHomeController::class, 'advertisement']);
+Route::get('/contact', [FrontHomeController::class, 'contact']);

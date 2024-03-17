@@ -29,7 +29,7 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <a class='badge bg-danger' href='{{ url('category/'. $item->slug) }}'>{{ $item->category->name }}</a>
+                                <a class='badge bg-danger' href='{{ url('category/'. $item->category->name) }}'>{{ $item->category->name }}</a>
                                 <h2><a href='{{ url('detail/'.$item->slug) }}'>{{ $item->title }}</a>
                                 </h2>
                                 <div class="row">
@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="col-lg-6"> <span class="date-info small  float-lg-end">
 
-                                            <span>{{ $item->created_at->format('d-m-Y') }}</span>
+                                            <span>{{ $item->formatted_created_at  }}</span>
                                         </span>
                                     </div>
                                 </div>
@@ -109,7 +109,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6"> <span class="date-info small float-lg-end">
-                                                        <span>1 mins to read</span>
+                                                        <span>{{ $article->formatted_created_at  }}</span>
                                                     </span>
                                                 </div>
                                             </div>

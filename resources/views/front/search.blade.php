@@ -46,7 +46,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-6"> <span class="date-info small float-lg-end">
-                                                    <span>1 mins to read</span>
+                                                    <span>{{ $item->formatted_created_at  }}</span>
                                                 </span>
                                             </div>
                                         </div>
